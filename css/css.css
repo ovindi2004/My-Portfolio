@@ -32,3 +32,22 @@
     --font-primary: 'Tajawal', sans-serif;
     --font-code: 'Fira Code', monospace;
 }
+[data-theme="light"] {
+    --bg-dark: #ffffff;
+    --bg-darker: #f8f9fa;
+    --bg-card: #ffffff;
+    --bg-hover: #f1f3f5;
+    --border: #e5e7eb;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
+}
+
+[dir="rtl"] { direction: rtl; text-align: right; }
+[dir="ltr"] { direction: ltr; text-align: left; }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
