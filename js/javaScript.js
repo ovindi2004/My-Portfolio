@@ -1,13 +1,12 @@
+/*=========================typed js==========================*/
 /*
-/!*=========================typed js==========================*!/
-/!*
 const typed = new Typed('.multiple-text',{
     strings:['Web Developer' , 'Software Engineer' , 'UI/UX Developer'],
     typeSpeed:70,
     backSpeed:70,
     backDelay:1000,
     loop:true,
-});*!/
+});*/
 
 const AppState = {
     currentLang: 'en',
@@ -779,4 +778,3 @@ window.Animations = {
     initSmoothScroll
 };
 
-*/
