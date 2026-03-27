@@ -649,7 +649,6 @@ img { max-width: 100%; height: auto; }
     .footer-bottom { padding: 1rem; }
 }
 
-<style>
  .tools-section {
      padding: 4rem 0;
      background: var(--bg-dark);
