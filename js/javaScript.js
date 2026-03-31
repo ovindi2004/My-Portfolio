@@ -78,13 +78,25 @@ function updateLanguageUI() {
     textElements.forEach(element => {
         const enText = element.getAttribute('data-text-en');
         const arText = element.getAttribute('data-text-ar');
-        if (AppState.currentLang === 'ar' && arText) {
-            element.textContent = arText;
-        } else if (AppState.currentLang === 'en' && enText) {
-            element.textContent = enText;
+        const newText = AppState.currentLang === 'ar' ? arText : enText;
+
+        if (!newText) return;
+
+        // child elements (icons etc.) ඇත්නම් text node only update කරනවා
+        const hasChildren = element.children.length > 0;
+        if (hasChildren) {
+            // icon preserve කරලා text nodes only replace කරනවා
+            Array.from(element.childNodes).forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                    node.textContent = newText;
+                }
+            });
+        } else {
+            element.textContent = newText;
         }
     });
 
+    // Placeholder update
     const placeholderElements = document.querySelectorAll('[data-placeholder-en], [data-placeholder-ar]');
     placeholderElements.forEach(element => {
         const enPlaceholder = element.getAttribute('data-placeholder-en');
@@ -96,6 +108,7 @@ function updateLanguageUI() {
         }
     });
 
+    // Lang button text update
     const langToggle = document.getElementById('langToggle');
     if (langToggle) {
         const langText = langToggle.querySelector('.lang-text');
@@ -777,4 +790,3 @@ window.Animations = {
     initParallax,
     initSmoothScroll
 };
-
