@@ -6,7 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> My Portfolio Web Design</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        // Suppress Tailwind CDN warning
+        if (typeof console !== 'undefined' && console.warn) {
+            const originalWarn = console.warn;
+            console.warn = function(...args) {
+                if (args[0] && typeof args[0] === 'string' && args[0].includes('tailwindcss.com')) {
+                    return; // Suppress Tailwind CDN warning
+                }
+                originalWarn.apply(console, args);
+            };
+        }
+    </script>
+
     <link rel="stylesheet" href="css/css.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -298,152 +312,6 @@
 
 
 
-
-
-
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills-section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">
-                    <span class="title-bracket">&lt;</span>
-                    <span class="title-text" data-text-en="Skills" data-text-ar="المهارات">Skills</span>
-                    <span class="title-bracket">/&gt;</span>
-                </h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="category-title" data-text-en="Frontend" data-text-ar="الواجهة الأمامية">Frontend</h3>
-                    <div class="skill-items">
-                        <div class="skill-item" data-skill="CSS" data-percent="95">
-                            <div class="skill-header">
-                                <span class="skill-name">CSS</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="JavaScript" data-percent="85">
-                            <div class="skill-header">
-                                <span class="skill-name">JavaScript</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="React" data-percent="90">
-                            <div class="skill-header">
-                                <span class="skill-name">ReactReact</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="Next.js" data-percent="88">
-                            <div class="skill-header">
-                                <span class="skill-name">Next.js</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="category-title" data-text-en="Backend" data-text-ar="الخلفية">Backend</h3>
-                    <div class="skill-items">
-                        <div class="skill-item" data-skill="Node.js" data-percent="92">
-                            <div class="skill-header">
-                                <span class="skill-name">Node.js</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="Express" data-percent="90">
-                            <div class="skill-header">
-                                <span class="skill-name">Express</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="MongoDB" data-percent="85">
-                            <div class="skill-header">
-                                <span class="skill-name">MongoDB</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="PostgreSQL" data-percent="80">
-                            <div class="skill-header">
-                                <span class="skill-name">PostgreSQL</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="category-title" data-text-en="Tools & Others" data-text-ar="الأدوات وغيرها">Tools & Others</h3>
-                    <div class="skill-items">
-                        <div class="skill-item" data-skill="Git" data-percent="95">
-                            <div class="skill-header">
-                                <span class="skill-name">Git</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="Docker" data-percent="75">
-                            <div class="skill-header">
-                                <span class="skill-name">Docker</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="AWS" data-percent="70">
-                            <div class="skill-header">
-                                <span class="skill-name">AWS</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="Figma" data-percent="88">
-                            <div class="skill-header">
-                                <span class="skill-name">Figma</span>
-                                <span class="skill-percent">0%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- TOOLS SECTION  -->
     <section id="tools" class="tools-section">
@@ -779,23 +647,6 @@
     </div>
 </footer>
 
-<script>
-    /* Intersection observer — fade in */
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((el, i) => {
-            if (el.isIntersecting) {
-                setTimeout(() => el.target.classList.add('visible'), i * 150);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    /* Touch support — tap to flip on mobile */
-    document.querySelectorAll('.flip-wrapper').forEach(card => {
-        card.addEventListener('click', () => card.classList.toggle('flipped'));
-    });
-</script>
 
 
 
