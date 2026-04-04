@@ -1,5 +1,5 @@
 :root {
-    --background-dark:#0f172a;
+    --background-dark: #0f172a;
     --spacing-s: 8px;
     --spacing-m: 16px;
     --spacing-l: 24px;
@@ -8,6 +8,14 @@
     --text-light: rgba(255,255,255,0.75);
     --text-lighter: rgba(255,255,255,0.9);
     --width-container: 1200px;
+
+    /* Purple + Orange palette */
+    --color-purple: #a855f7;
+    --color-orange: #f97316;
+    --gradient-primary: linear-gradient(90deg, #a855f7, #f97316);
+    --gradient-shimmer: linear-gradient(90deg, #a855f7, #f97316, #a855f7);
+    --badge-bg: linear-gradient(135deg, rgba(168,85,247,0.3), rgba(249,115,22,0.3));
+    --badge-border: rgba(168, 85, 247, 0.5);
 }
 
 * {
@@ -34,17 +42,27 @@ body {
     min-height: 100%;
     justify-content: center;
     padding: var(--spacing-xxl) var(--spacing-l);
-    flex-direction: column; /* Added this */
+    flex-direction: column;
 }
 
+/* Title — shimmer animation */
 .assignment-title {
-    color: var(--text-lighter);
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: var(--spacing-xxl);
     text-align: center;
-    text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
     letter-spacing: 2px;
+    background: var(--gradient-shimmer);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
 }
 
 .card-grid {
@@ -111,12 +129,17 @@ body {
     top: 0;
 }
 
+/* Category — orange to purple gradient */
 .card__category {
-    color: var(--text-light);
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: var(--spacing-m);
     text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .card__heading {
@@ -124,4 +147,21 @@ body {
     font-size: 1.8rem;
     text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
     line-height: 1.2;
+}
+
+/* Badge — optional, add to your HTML */
+.card__badge {
+    position: absolute;
+    bottom: var(--spacing-l);
+    right: var(--spacing-l);
+    background: var(--badge-bg);
+    backdrop-filter: blur(6px);
+    color: var(--text-lighter);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1px solid var(--badge-border);
 }
