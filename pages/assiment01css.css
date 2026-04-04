@@ -94,6 +94,13 @@ body {
     filter: brightness(0.5) saturate(0.5) contrast(1.2) blur(20px);
 }
 
+.card__content {
+    left: 0;
+    padding: var(--spacing-l);
+    position: absolute;
+    top: 0;
+}
+
 
 
 
