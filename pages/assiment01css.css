@@ -1,0 +1,11 @@
+:root{
+    --background-dark:#0f172a;
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --width-container: 1200px;
+    --text-light: rgba(255,255,255,0.75);
+    --text-lighter: rgba(255,255,255,0.9);
+}
