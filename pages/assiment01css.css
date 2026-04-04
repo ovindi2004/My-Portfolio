@@ -61,6 +61,11 @@ body {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+.card{
+    list-style: none;
+    position: relative;
+    text-decoration: none;
+}
 
 
 
