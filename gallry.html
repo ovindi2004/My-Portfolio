@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid - Photo Gallery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400&display=swap');
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #0e0e0e;
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            color: #fff;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #e8c97e;
+            margin: 14px auto 0;
+            border-radius: 2px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 250px;
+            gap: 10px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        figure {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        figure img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        figure:hover img {
+            transform: scale(1.07);
+        }
+
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            padding: 20px 16px 14px;
+            transform: translateY(100%);
+            transition: transform 0.35s ease;
+        }
+
+        figure:hover figcaption {
+            transform: translateY(0);
+        }
+
+        figcaption h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #e8c97e;
+            margin-bottom: 4px;
+        }
+
+        figcaption p {
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: #ddd;
+            line-height: 1.4;
+        }
+
+        /* Featured large items */
+        figure:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        figure:nth-child(6) {
+            grid-column: span 2;
+        }
+
+        figure:nth-child(10) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        @media (max-width: 900px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            figure:nth-child(1),
+            figure:nth-child(6),
+            figure:nth-child(10) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>CSS Grid — Photo Gallery</h1>
+
+<div class="gallery">
+    <figure>
+        <img src="gallry/1.jpg" alt="Mountains">
+        <figcaption>
+            <h3>Mountains</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/2.jpg" alt="Automobile">
+        <figcaption>
+            <h3>Automobile</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/3.jpg" alt="Mountains">
+        <figcaption>
+            <h3>Mountains</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/4.jpg" alt="Mountains">
+        <figcaption>
+            <h3>Mountains</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/5.jpg" alt="Bicycle">
+        <figcaption>
+            <h3>Bicycle</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/6.jpg" alt="Office">
+        <figcaption>
+            <h3>Office</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/7.jpg" alt="Office">
+        <figcaption>
+            <h3>Office</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/8.jpg" alt="Cityscape">
+        <figcaption>
+            <h3>Cityscape</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/9.jpg" alt="Cityscape">
+        <figcaption>
+            <h3>Cityscape</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/10.jpg" alt="Mountains">
+        <figcaption>
+            <h3>Mountains</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/11.jpg" alt="Mountains">
+        <figcaption>
+            <h3>Mountains</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/12.jpg" alt="Mountains">
+        <figcaption>
+            <h3>Mountains</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/13.jpg" alt="Mountains">
+        <figcaption>
+            <h3>Mountains</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/14.jpg" alt="Mountains">
+        <figcaption>
+            <h3>Mountains</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/15.jpg" alt="Office">
+        <figcaption>
+            <h3>Office</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="gallry/16.jpg" alt="Office">
+        <figcaption>
+            <h3>Office</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </figcaption>
+    </figure>
+</div>
+
+</body>
+</html>
