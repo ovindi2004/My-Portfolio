@@ -2935,5 +2935,14 @@ img {
     margin: 0 auto;
 
 }
+.gallery figure{
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    margin: 0;
+}
 
 
