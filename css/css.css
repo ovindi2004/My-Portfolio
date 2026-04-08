@@ -2957,7 +2957,7 @@ img {
     object-fit: cover;
     display: block;
 }
-gallery figure:hover img {
+.gallery figure:hover img {
     transform: scale(1.07);
 }
 
