@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> My Portfolio Web Design</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 
 
     <script>
@@ -1094,7 +1094,7 @@
     AOS.init();
 </script>
 
-<script>
+<!--<script>
     document.getElementById("contactForm").addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -1156,7 +1156,51 @@ Please send this email now.`;
                 btn.disabled = false;
             });
     });
-</script>
+</script>-->
+
+
+ <script type="text/javascript"
+         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+ </script>
+ <script>
+     (function(){
+         emailjs.init("2ksx2hLyw69kciPh5");
+     })();
+
+     document.getElementById("contactForm").addEventListener("submit", function(e) {
+         e.preventDefault();
+
+         const btn = this.querySelector(".btn-submit");
+         const originalText = btn.innerHTML;
+
+         btn.disabled = true;
+         btn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+
+         emailjs.send("service_8ufgv7c", "template_99jsaby", {
+             from_name: this.querySelector('[name="from_name"]').value,
+             from_email: this.querySelector('[name="from_email"]').value,
+             subject: this.querySelector('[name="subject"]').value,
+             message: this.querySelector('[name="message"]').value,
+         }).then((response) => {
+             btn.innerHTML = '<span>Sent! ✓</span> <i class="fas fa-check"></i>';
+             btn.style.background = "#22c55e";
+             this.reset();
+             setTimeout(() => {
+                 btn.disabled = false;
+                 btn.innerHTML = originalText;
+                 btn.style.background = "";
+             }, 3000);
+         }).catch((err) => {
+             console.error("EmailJS Error:", err);
+             btn.innerHTML = '<span>Failed! ✗</span> <i class="fas fa-exclamation-triangle"></i>';
+             setTimeout(() => {
+                 btn.disabled = false;
+                 btn.innerHTML = originalText;
+             }, 2000);
+             alert("Failed to send message. Error: " + err.text);
+         });
+     });
+ </script>
 <script src="js/javaScript.js"></script>
 
 </body>
