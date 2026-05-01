@@ -1222,12 +1222,9 @@ Please send this email now.`;
  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
  <script>
-     // ✅ FIX 1: DOMContentLoaded use කරනවා - page load වෙලා ඉවර වෙනකම් wait කරනවා
      document.addEventListener("DOMContentLoaded", function () {
 
-         // EmailJS initialize කරනවා
          emailjs.init("2ksx2hLyw69kciPh5");
-         console.log("EmailJS initialized!");
 
          document.getElementById("contactForm").addEventListener("submit", function (e) {
              e.preventDefault();
@@ -1235,19 +1232,24 @@ Please send this email now.`;
              const btn = this.querySelector(".btn-submit");
              const originalHTML = btn.innerHTML;
 
-             // Button disable කරනවා
              btn.disabled = true;
              btn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
 
-             // ✅ FIX 2: sendForm() use කරනවා - formData manually gather කරන්න ඕන නෑ
              emailjs.sendForm("service_8ufgv7c", "template_99jsaby", this)
-                 .then(function (response) {
-                     console.log("✅ Success:", response);
+                 .then(() => {
 
-                     btn.innerHTML = '<span>Sent! ✓</span> <i class="fas fa-check"></i>';
+                     // ✅ SUCCESS Swal
+                     Swal.fire({
+                         title: "Success!",
+                         text: "Message sent successfully 🚀",
+                         icon: "success",
+                         confirmButtonColor: "#22c55e"
+                     });
+
+                     btn.innerHTML = '<span>Sent! ✓</span>';
                      btn.style.background = "#22c55e";
 
-                     document.getElementById("contactForm").reset();
+                     this.reset();
 
                      setTimeout(() => {
                          btn.disabled = false;
@@ -1256,13 +1258,20 @@ Please send this email now.`;
                      }, 3000);
 
                  })
-                 .catch(function (error) {
-                     console.error("❌ Error:", error);
+                 .catch((error) => {
 
-                     btn.innerHTML = '<span>Failed! ✗</span> <i class="fas fa-exclamation-triangle"></i>';
+                     // ❌ ERROR Swal
+                     Swal.fire({
+                         title: "Error!",
+                         text: "Message send failed 😢",
+                         icon: "error",
+                         confirmButtonColor: "#dc2626"
+                     });
+
+                     console.error(error);
+
+                     btn.innerHTML = '<span>Failed! ✗</span>';
                      btn.style.background = "#dc2626";
-
-                     alert("Message send නොවුණා! Error: " + (error.text || "Unknown error"));
 
                      setTimeout(() => {
                          btn.disabled = false;
@@ -1273,6 +1282,8 @@ Please send this email now.`;
          });
      });
  </script>
+
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="js/javaScript.js"></script>
 
