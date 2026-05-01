@@ -257,7 +257,7 @@ function handleFormSubmit(e) {
         ? 'تم إرسال الرسالة بنجاح!'
         : 'Message sent successfully!';
 
-    alert(message);
+
     e.target.reset();
 }
 
