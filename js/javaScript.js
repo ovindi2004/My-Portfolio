@@ -423,6 +423,16 @@ function initPageAnimations() {
             }, index * 450);
         });
 
+        //  Hero title animation — lightSpeedInLeft
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) {
+            heroTitle.classList.remove('animate__animated', 'animate__slideInLeft');
+            void heroTitle.offsetWidth;
+            heroTitle.classList.add('animate__animated', 'animate__slideInLeft');
+        }
+
+
+
 
 
     }, 300);
