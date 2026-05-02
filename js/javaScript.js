@@ -404,6 +404,15 @@ function initPageAnimations() {
         animateStats();
         initParallax();
         initSmoothScroll();
+
+        // icon animation restart
+        const codeIcon = document.querySelector('.profile-placeholder .fa-code');
+        if (codeIcon) {
+            codeIcon.classList.remove('animate__rotateIn');
+            void codeIcon.offsetWidth; // reflow trick
+            codeIcon.classList.add('animate__rotateIn');
+        }
+
     }, 300);
 }
 
