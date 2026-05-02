@@ -413,6 +413,18 @@ function initPageAnimations() {
             codeIcon.classList.add('animate__rotateIn');
         }
 
+        //  Social icons animation
+        const socialIcons = document.querySelectorAll('.hero-social .social-icon');
+        socialIcons.forEach((icon, index) => {
+            icon.classList.remove('animate__animated', 'animate__rotateIn');
+            void icon.offsetWidth;
+            setTimeout(() => {
+                icon.classList.add('animate__animated', 'animate__rotateIn');
+            }, index * 450);
+        });
+
+
+
     }, 300);
 }
 
