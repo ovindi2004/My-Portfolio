@@ -444,7 +444,7 @@ function initPageAnimations() {
             void btn.offsetWidth;
             setTimeout(() => {
                 btn.classList.add('animate__animated', 'animate__zoomIn');
-            }, index * 200);
+            }, index * 150);
         });
 
 
@@ -506,17 +506,7 @@ function initHeroAnimations() {
         });
     }
 
-    const heroButtons = document.querySelectorAll('.hero-buttons .btn');
-    if (heroButtons.length > 0) {
-        anime({
-            targets: heroButtons,
-            opacity: [0, 1],
-            scale: [0.8, 1],
-            delay: anime.stagger(100, {start: 1500}),
-            duration: 800,
-            easing: 'easeOutBack'
-        });
-    }
+
 
     const socialIcons = document.querySelectorAll('.hero-social .social-icon');
     if (socialIcons.length > 0) {
