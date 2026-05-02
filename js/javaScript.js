@@ -437,12 +437,15 @@ function initPageAnimations() {
             void heroDescription.offsetWidth;
             heroDescription.classList.add('animate__animated', 'animate__slideInUp');
         }
-
-
-
-
-
-
+        // Hero buttons animation — zoomIn
+        const heroButtons = document.querySelectorAll('.hero-buttons .btn');
+        heroButtons.forEach((btn, index) => {
+            btn.classList.remove('animate__animated', 'animate__zoomIn');
+            void btn.offsetWidth;
+            setTimeout(() => {
+                btn.classList.add('animate__animated', 'animate__zoomIn');
+            }, index * 200);
+        });
 
 
     }, 300);
