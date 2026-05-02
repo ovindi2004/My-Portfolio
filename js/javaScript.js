@@ -430,6 +430,16 @@ function initPageAnimations() {
             void heroTitle.offsetWidth;
             heroTitle.classList.add('animate__animated', 'animate__slideInLeft');
         }
+        //  Hero description animation — slideInUp
+        const heroDescription = document.querySelector('.hero-description');
+        if (heroDescription) {
+            heroDescription.classList.remove('animate__animated', 'animate__slideInUp');
+            void heroDescription.offsetWidth;
+            heroDescription.classList.add('animate__animated', 'animate__slideInUp');
+        }
+
+
+
 
 
 
