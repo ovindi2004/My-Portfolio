@@ -83,10 +83,10 @@ function updateLanguageUI() {
 
         if (!newText) return;
 
-        // child elements (icons etc.) ඇත්නම් text node only update කරනවා
+
         const hasChildren = element.children.length > 0;
         if (hasChildren) {
-            // icon preserve කරලා text nodes only replace කරනවා
+
             Array.from(element.childNodes).forEach(node => {
                 if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
                     node.textContent = newText;
@@ -316,7 +316,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 //--------------animations.js-----------------
 function inView(element, callback, options = {}) {
     const observer = new IntersectionObserver((entries) => {
@@ -461,12 +460,12 @@ function initHeroAnimations() {
             const originalText = nameValue.textContent;
             nameValue.textContent = '';
             anime({
-                targets: { value: 0 },
+                targets: {value: 0},
                 value: originalText.length,
                 duration: 1500,
                 delay: 500,
                 easing: 'easeInOutQuad',
-                update: function(anim) {
+                update: function (anim) {
                     const length = Math.floor(anim.animatables[0].target.value);
                     nameValue.textContent = originalText.substring(0, length);
                 },
@@ -505,7 +504,6 @@ function initHeroAnimations() {
             easing: 'easeOutExpo'
         });
     }
-
 
 
     const socialIcons = document.querySelectorAll('.hero-social .social-icon');
@@ -592,12 +590,12 @@ function initSkillAnimations() {
                     });
 
                     anime({
-                        targets: { value: 0 },
+                        targets: {value: 0},
                         value: percent,
                         duration: 2000,
                         easing: 'easeOutExpo',
                         delay: 300,
-                        update: function(anim) {
+                        update: function (anim) {
                             if (percentElement) {
                                 percentElement.textContent = Math.floor(anim.animatables[0].target.value) + '%';
                             }
@@ -607,7 +605,7 @@ function initSkillAnimations() {
                 observer.unobserve(skillItem);
             }
         });
-    }, { threshold: 0.5 });
+    }, {threshold: 0.5});
 
     skillItems.forEach(item => observer.observe(item));
 }
@@ -626,30 +624,16 @@ function initTimelineAnimations() {
                     easing: 'easeOutExpo'
                 });
             } else {
-                animateElement(item, { opacity: [0, 1], x: [-50, 0] }, { duration: 0.8, delay: index * 0.1 });
+                animateElement(item, {opacity: [0, 1], x: [-50, 0]}, {duration: 0.8, delay: index * 0.1});
             }
-        }, { amount: 0.3 });
+        }, {amount: 0.3});
     });
 }
 
 function initProjectAnimations() {
     const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card, index) => {
-        inView(card, () => {
-            if (typeof anime !== 'undefined') {
-                anime({
-                    targets: card,
-                    opacity: [0, 1],
-                    translateY: [50, 0],
-                    scale: [0.9, 1],
-                    delay: index * 100,
-                    duration: 1000,
-                    easing: 'easeOutExpo'
-                });
-            } else {
-                animateElement(card, { opacity: [0, 1], y: [50, 0], scale: [0.9, 1] }, { duration: 0.8, delay: index * 0.1 });
-            }
-        }, { amount: 0.2 });
+    projectCards.forEach((card) => {
+
 
         card.addEventListener('mouseenter', () => {
             if (typeof anime !== 'undefined') {
@@ -682,7 +666,8 @@ function initScrollAnimations() {
         }, { amount: 0.2 });
     });
 
-    const cards = document.querySelectorAll('.card, .project-card, .contact-item');
+
+    const cards = document.querySelectorAll('.card, .contact-item');
     cards.forEach((card, index) => {
         inView(card, () => {
             if (typeof anime !== 'undefined') {
@@ -694,8 +679,6 @@ function initScrollAnimations() {
                     duration: 500,
                     easing: 'easeOutExpo'
                 });
-            } else {
-                animateElement(card, { opacity: [0, 1], y: [50, 0] }, { duration: 0.6, delay: index * 0.05 });
             }
         }, { amount: 0.2 });
     });
@@ -713,25 +696,25 @@ function animateStats() {
                     duration: 2000,
                     easing: 'easeOutExpo',
                     update: function(anim) {
-                        stat.textContent = Math.floor(anim.animatables[0].target.value);
+                        const val = Math.floor(anim.animatables[0].target.value);
+                        stat.textContent = val < 10 ? '0' + val : val;
                     }
                 });
             }
         }, { amount: 0.5 });
     });
 }
-
 function initContactAnimations() {
     const contactItems = document.querySelectorAll('.contact-item');
     contactItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             if (typeof anime !== 'undefined') {
-                anime({ targets: item, scale: [1, 1.02], duration: 200, easing: 'easeOutQuad' });
+                anime({targets: item, scale: [1, 1.02], duration: 200, easing: 'easeOutQuad'});
             }
         });
         item.addEventListener('mouseleave', () => {
             if (typeof anime !== 'undefined') {
-                anime({ targets: item, scale: [1.02, 1], duration: 200, easing: 'easeOutQuad' });
+                anime({targets: item, scale: [1.02, 1], duration: 200, easing: 'easeOutQuad'});
             }
         });
     });
@@ -820,8 +803,6 @@ function initSmoothScroll() {
         });
     });
 }
-
-
 
 
 window.Animations = {
