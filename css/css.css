@@ -61,6 +61,11 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -908,6 +913,8 @@ img {
     font-family: var(--font-code);
     font-size: 0.9rem;
     line-height: 1.8;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .code-line {
@@ -1171,7 +1178,7 @@ img {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
 }
 
@@ -1649,7 +1656,7 @@ img {
         padding: 2rem 0;
     }
 
-    .section-container {
+    .section-container, .tools-container {
         padding: 0 1rem;
     }
 
@@ -1840,9 +1847,12 @@ img {
         font-size: 1.2rem;
     }
 
-    .lang-toggle, .theme-toggle {
-        padding: 0.5rem 0.8rem;
+    .lang-toggle, .theme-toggle, .menu-toggle {
+        padding: 0.4rem 0.6rem;
         font-size: 0.8rem;
+    }
+    .nav-controls {
+        gap: 0.3rem;
     }
 
     .hero-name {
@@ -1878,6 +1888,10 @@ img {
     .code-block {
         padding: 1rem;
         font-size: 0.75rem;
+    }
+
+    .scroll-indicator{
+        display: none;
     }
 
     .skill-category {
@@ -1975,6 +1989,10 @@ img {
 
     .stat-number {
         font-size: 1.5rem;
+    }
+
+    .scroll-indicator {
+        display: none;
     }
 }
 
@@ -2856,6 +2874,7 @@ img {
 @media (max-width: 768px) {
     .gc-track {
         max-width: 100%;
+        padding: 0 1rem;
     }
 
     .gc-card-inner {
