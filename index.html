@@ -7,24 +7,6 @@
     <title> My Portfolio Web Design</title>
     <link rel="icon"type ="image/X-icon" href="../assets/logo.png">
 
-
-
-
-
-    <script>
-        if (typeof console !== 'undefined' && console.warn) {
-            const originalWarn = console.warn;
-            console.warn = function(...args) {
-                if (args[0] && typeof args[0] === 'string' && args[0].includes('tailwindcss.com')) {
-                    return; // Suppress Tailwind CDN warning
-                }
-                originalWarn.apply(console, args);
-            };
-        }
-    </script>
-
-
-
     <link rel="stylesheet" href="css/css.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -43,7 +25,7 @@
 <body class="body-main" data-theme="dark" data-lang="en" data-dir="ltr">
 
 
- Loading Screen
+ <!--Loading Screen-->
 <div class="loader-screen" id="loader">
     <div class="loader-content">
         <div class="loader-code-text">
@@ -322,6 +304,7 @@
             </div>
         </div>
     </section>
+
     <!-- Skills Section -->
     <section id="skills" class="section skw-section" >
         <div class="section-container">
@@ -500,7 +483,6 @@
         </div>
     </section>
 
-
     <!-- Assignment  SECTION  -->
     <section id="Assignment" class="section skw-section">
         <div class="section-container">
@@ -586,8 +568,9 @@
             </div>
 
 </section>
+
     <!-- Projects Section -->
-<section id="projects" class="section projects-section">
+    <section id="projects" class="section projects-section">
     <div class="section-container">
         <div class="section-header">
             <h2 class="section-title">
@@ -803,7 +786,7 @@
         </div>
 </section>
 
-   <!-- Gallery SECTION-->
+     <!-- Gallery SECTION-->
     <section id="gallery" class="section projects-section" >
         <div class="section-container">
             <div class="section-header">
@@ -922,7 +905,6 @@
 
     </section>
 
-
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="section-container">
@@ -983,7 +965,6 @@
     </section>
 
 </main>
-
 
 <!-- Footer -->
 <footer class="main-footer-new">
@@ -1060,10 +1041,6 @@
         <p>© 2026 Ovindi Jayawardena. All rights reserved.</p>
     </div>
 </footer>
-
-
-
-
 
 
 <script>
@@ -1161,10 +1138,7 @@
      });
  </script>
 
-
-
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
  <script src="js/javaScript.js"></script>
 
